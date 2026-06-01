@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revanth N — AI & Data Science Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0e0c;
+  --ink2: #2a2825;
+  --paper: #f7f4ef;
+  --paper2: #efeae1;
+  --paper3: #e8e2d6;
+  --gold: #b8935a;
+  --gold-light: #d4aa76;
+  --gold-pale: rgba(184,147,90,0.10);
+  --text: #2a2825;
+  --text-mid: #6b6560;
+  --text-dim: #9d988f;
+  --rule: rgba(42,40,37,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--paper);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── UTILITY ─── */
+.serif { font-family: 'Playfair Display', serif; }
+.mono  { font-family: 'DM Mono', monospace; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 200;
+  background: rgba(247,244,239,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-mid);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 9px 22px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.22s;
+}
+.nav-cta:hover { background: var(--gold); color: #fff; }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  padding: 80px 64px 80px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.hero-eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero-eyebrow span {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: 'DM Mono', monospace;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.08;
+  color: var(--ink);
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-title {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  letter-spacing: 0.3px;
+  line-height: 1.7;
+  max-width: 400px;
+  margin-bottom: 40px;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-mid);
+  background: var(--paper2);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 4px 12px;
+  letter-spacing: 0.5px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.btn-gold {
+  display: inline-block;
+  padding: 13px 32px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.22s;
+}
+.btn-gold:hover { background: #9e7a44; }
+.btn-text {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-text:hover { color: var(--gold); border-color: var(--gold); }
+
+/* HERO RIGHT */
+.hero-right {
+  background: var(--paper2);
+  border-left: 1px solid var(--rule);
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 48px 80px 64px;
+  position: relative;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 65%, rgba(184,147,90,0.06) 100%);
+  pointer-events: none;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+.stat-cell {
+  background: var(--paper2);
+  padding: 28px 28px;
+}
+.stat-cell:hover { background: var(--paper); }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-pub-card {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--gold);
+  background: var(--paper);
+  padding: 24px 24px;
+  border-radius: 2px;
+}
+.pub-micro-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.pub-micro-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+.pub-micro-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+/* ─── SECTION BASE ─── */
+section { padding: 96px 0; }
+section:nth-child(even) { background: var(--paper2); }
+
+.sec-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.sec-label span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.67rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.sec-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 56px;
+  line-height: 1.15;
+}
+.sec-title em { font-style: italic; color: var(--gold); }
+
+/* ─── ABOUT ─── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-text p {
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.about-text p strong { color: var(--ink); font-weight: 500; }
+
+.about-quote {
+  border-left: 2px solid var(--gold);
+  padding: 8px 0 8px 24px;
+  margin: 32px 0;
+}
+.about-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  margin: 0 !important;
+}
+
+.edu-stack { display: flex; flex-direction: column; gap: 20px; }
+.edu-card {
+  padding: 28px 28px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  position: relative;
+  transition: border-color 0.22s;
+}
+.edu-card:hover { border-color: var(--gold-light); }
+.edu-badge {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  background: var(--gold-pale);
+  color: var(--gold);
+  border-radius: 2px;
+}
+.edu-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 5px;
+  padding-right: 80px;
+  line-height: 1.3;
+}
+.edu-card .inst {
+  font-size: 0.8rem;
+  color: var(--text-mid);
+  margin-bottom: 3px;
+}
+.edu-card .period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+.edu-cgpa {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+.edu-cgpa span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-weight: 300;
+  margin-left: 4px;
+}
+
+/* ─── SKILLS ─── */
+.skills-outer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.skill-block {
+  padding: 32px 28px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  transition: border-color 0.22s, transform 0.22s;
+}
+.skill-block:hover { border-color: var(--gold-light); transform: translateY(-3px); }
+.skill-block-icon {
+  width: 36px; height: 36px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  display: grid; place-items: center;
+  margin-bottom: 18px;
+  color: var(--gold);
+}
+.skill-block h3 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.skill-list li {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.skill-list li::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  flex-shrink: 0;
+}
+
+/* ─── PROJECTS ─── */
+.proj-list { display: flex; flex-direction: column; gap: 24px; }
+.proj-card {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--paper);
+  transition: border-color 0.22s, box-shadow 0.22s;
+}
+.proj-card:hover { border-color: var(--gold-light); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+.proj-number {
+  background: var(--paper2);
+  border-right: 1px solid var(--rule);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 0 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--paper3);
+}
+.proj-body { padding: 32px 36px; }
+.proj-body-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.proj-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.proj-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 2px;
+  border: 1px solid;
+  flex-shrink: 0;
+  margin-left: 20px;
+}
+.proj-badge.ieee { color: var(--gold); border-color: var(--gold-light); background: var(--gold-pale); }
+.proj-badge.research { color: var(--text-mid); border-color: var(--rule); }
+.proj-badge.personal { color: var(--text-dim); border-color: var(--rule); }
+.proj-desc {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+.proj-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.proj-metric {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.5px;
+  color: var(--gold);
+  background: var(--gold-pale);
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+.proj-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.proj-tech {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  background: var(--paper2);
+  border: 1px solid var(--rule);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.proj-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  color: var(--text-dim);
+  font-size: 1.2rem;
+  border-left: 1px solid var(--rule);
+  transition: color 0.2s;
+}
+.proj-card:hover .proj-arrow { color: var(--gold); }
+
+/* ─── PUBLICATION ─── */
+.pub-feature {
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.pub-feature-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border-bottom: 1px solid var(--rule);
+}
+.pub-year-col {
+  padding: 40px 48px;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper2);
+}
+.pub-year-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.pub-year-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+.pub-meta-col {
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.pub-conf-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.pub-conf-full {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+.pub-conf-detail {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+.pub-feature-body { padding: 40px 40px; }
+.pub-feature-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+.pub-feature-body p {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+.pub-tags { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+.pub-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.63rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--text-mid);
+}
+.pub-tag.featured { border-color: var(--gold-light); color: var(--gold); background: var(--gold-pale); }
+
+/* ─── ACHIEVEMENTS ─── */
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.ach-card {
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper);
+  padding: 30px 30px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: border-color 0.22s;
+}
+.ach-card:hover { border-color: var(--gold-light); }
+.ach-icon-wrap {
+  width: 44px; height: 44px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 1rem;
+}
+.ach-body h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 5px;
+  letter-spacing: 0.2px;
+}
+.ach-body p {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ─── CONTACT ─── */
+#contact { background: var(--ink); }
+#contact .sec-label span { color: var(--gold-light); }
+#contact .sec-label::after { background: rgba(255,255,255,0.1); }
+#contact .sec-title { color: #fff; }
+#contact .sec-title em { color: var(--gold-light); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-text p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+.contact-text p strong { color: rgba(255,255,255,0.8); font-weight: 400; }
+
+.contact-links { display: flex; flex-direction: column; gap: 2px; }
+.c-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.88rem;
+  transition: color 0.2s;
+  position: relative;
+}
+.c-link:hover { color: var(--gold-light); }
+.c-link:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.c-link-left { display: flex; align-items: center; gap: 16px; }
+.c-link-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  min-width: 54px;
+}
+.c-link-val { font-size: 0.88rem; }
+.c-arrow { font-size: 0.85rem; opacity: 0; transform: translateX(-6px); transition: all 0.2s; }
+.c-link:hover .c-arrow { opacity: 1; transform: translateX(0); color: var(--gold-light); }
+
+/* FOOTER */
+footer {
+  background: #090806;
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+footer span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 1px;
+}
+footer .f-right { color: var(--gold); opacity: 0.6; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { border-left: none; border-top: 1px solid var(--rule); }
+  .hero-right, .hero-left { padding: 48px 24px; min-height: auto; }
+  .container { padding: 0 24px; }
+  .about-grid, .contact-grid, .ach-grid { grid-template-columns: 1fr; gap: 40px; }
+  .skills-outer { grid-template-columns: 1fr 1fr; }
+  .proj-card { grid-template-columns: 1fr; }
+  .proj-number, .proj-arrow { display: none; }
+  nav .nav-links { display: none; }
+  .pub-feature-header { grid-template-columns: 1fr; }
+  .pub-year-col { padding: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Revanth N.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publication">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:nrevanth19@gmail.com">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      <span>M.Tech DSAI · IIIT Surat</span>
+    </div>
+    <h1 class="hero-name">Revanth<br><em>N.</em></h1>
+    <p class="hero-title">AI & Data Science Engineer building intelligent systems from model training to embedded deployment — deep learning, NLP, and on-device inference.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">PyTorch</span>
+      <span class="hero-tag">BERT · RoBERTa</span>
+      <span class="hero-tag">TensorFlow Lite</span>
+      <span class="hero-tag">Transformers</span>
+      <span class="hero-tag">Embedded AI</span>
+      <span class="hero-tag">Python</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-gold">View Projects</a>
+      <a href="#publication" class="btn-text">IEEE Research</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-num">8.9</div>
+        <div class="stat-label">M.Tech CGPA</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">9.0</div>
+        <div class="stat-label">B.Tech CGPA</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">403</div>
+        <div class="stat-label">GATE 2025</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">IEEE</div>
+        <div class="stat-label">Published 2026</div>
+      </div>
+    </div>
+
+    <div class="hero-pub-card">
+      <div class="pub-micro-label">Latest Publication</div>
+      <div class="pub-micro-title">AlertMate: A Low-Cost, Wearable IoT Locket With On-Device Inference For Reliable Fall Detection…</div>
+      <div class="pub-micro-meta">IEEE CONECCT 2026 · Category I Demo · Bangalore</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="sec-label reveal"><span>01 / About</span></div>
+    <h2 class="sec-title reveal">AI engineer. <em>Researcher.</em><br>Edge-to-cloud builder.</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm <strong>Revanth N</strong>, an M.Tech student in <strong>Data Science & Artificial Intelligence</strong> at IIIT Surat with a strong academic foundation and a drive to build AI systems that work in the real world — not just in notebooks.</p>
+        <p>My work spans the full machine learning stack: fine-tuning <strong>BERT and RoBERTa</strong> for NLP tasks, training <strong>CNNs and Transformers</strong> from scratch, and deploying quantized <strong>TFLite models</strong> on microcontrollers for real-time on-device inference.</p>
+        <div class="about-quote">
+          <p>"The best AI is invisible — it just works, reliably, in the conditions that matter."</p>
+        </div>
+        <p>My IEEE-accepted paper on wearable fall detection reflects that philosophy: <strong>95.2% accuracy</strong>, under 3-second alert latency, on a low-cost Arduino locket designed for vulnerable users.</p>
+      </div>
+      <div class="edu-stack reveal">
+        <div class="edu-card">
+          <span class="edu-badge">Active</span>
+          <h3>M.Tech — Computer Science (Data Science & AI)</h3>
+          <div class="inst">Indian Institute of Information Technology, Surat</div>
+          <div class="period">2025 – Present</div>
+          <div class="edu-cgpa">8.9<span>/ 10</span></div>
+        </div>
+        <div class="edu-card">
+          <span class="edu-badge">Completed</span>
+          <h3>B.Tech — Cyber Security & Cyber Forensics</h3>
+          <div class="inst">Srinivas University, Mangalore</div>
+          <div class="period">2021 – 2025</div>
+          <div class="edu-cgpa">9.0<span>/ 10</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-label reveal"><span>02 / Skills</span></div>
+    <h2 class="sec-title reveal">Technical <em>expertise</em></h2>
+    <div class="skills-outer">
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Deep Learning</h3>
+        <ul class="skill-list">
+          <li>PyTorch</li>
+          <li>TensorFlow / TFLite</li>
+          <li>CNN · RNN · LSTM</li>
+          <li>Transformers</li>
+          <li>Transfer Learning</li>
+        </ul>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>NLP</h3>
+        <ul class="skill-list">
+          <li>BERT · RoBERTa</li>
+          <li>HuggingFace Transformers</li>
+          <li>Sentiment Analysis</li>
+          <li>Text Classification</li>
+        </ul>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Data Science</h3>
+        <ul class="skill-list">
+          <li>Pandas · NumPy</li>
+          <li>Scikit-learn</li>
+          <li>Feature Engineering</li>
+          <li>Model Evaluation</li>
+          <li>Matplotlib · EDA</li>
+        </ul>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <h3>Embedded AI</h3>
+        <ul class="skill-list">
+          <li>Arduino Nano 33 BLE</li>
+          <li>9-DOF IMU Sensors</li>
+          <li>On-device Inference</li>
+          <li>BLE · Firebase</li>
+        </ul>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Programming</h3>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>Java</li>
+          <li>C</li>
+          <li>Arduino IDE</li>
+        </ul>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41M2 12h2m16 0h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M12 2v2m0 16v2"/></svg>
+        </div>
+        <h3>ML Concepts</h3>
+        <ul class="skill-list">
+          <li>Cross-validation</li>
+          <li>Hyperparameter Tuning</li>
+          <li>Model Deployment</li>
+          <li>Behavioral Biometrics</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="sec-label reveal"><span>03 / Projects</span></div>
+    <h2 class="sec-title reveal">Selected <em>work</em></h2>
+    <div class="proj-list">
+
+      <div class="proj-card reveal">
+        <div class="proj-number">01</div>
+        <div class="proj-body">
+          <div class="proj-body-top">
+            <div class="proj-title">AlertMate — Wearable IoT Fall Detection System</div>
+            <span class="proj-badge ieee">IEEE CONECCT 2026</span>
+          </div>
+          <p class="proj-desc">A wearable fall detection locket built on Arduino Nano 33 BLE Sense Rev2 with 9-DOF IMU for real-time monitoring. EMA-based adaptive thresholding classifies falls with high accuracy; multi-channel emergency alerts via BLE and Firebase deliver end-to-end latency under 3 seconds.</p>
+          <div class="proj-metrics">
+            <span class="proj-metric">Accuracy 95.2%</span>
+            <span class="proj-metric">Recall 94.1%</span>
+            <span class="proj-metric">F1 95.0%</span>
+            <span class="proj-metric">n = 105 samples</span>
+            <span class="proj-metric">Latency &lt; 3s</span>
+          </div>
+          <div class="proj-stack">
+            <span class="proj-tech">Arduino</span><span class="proj-tech">TFLite INT8</span><span class="proj-tech">BLE</span><span class="proj-tech">Firebase</span><span class="proj-tech">EMA Filtering</span><span class="proj-tech">C++</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-number">02</div>
+        <div class="proj-body">
+          <div class="proj-body-top">
+            <div class="proj-title">Cognitive Fingerprinting — Continuous Authentication</div>
+            <span class="proj-badge research">IIIT Surat Research</span>
+          </div>
+          <p class="proj-desc">A behavioral biometrics continuous authentication system using touch dynamics, keystroke patterns, and motion sensor data. Engineered 15+ features evaluated with Random Forest and One-Class SVM using cross-validation. Deployed models via TFLite with a proposed Agentic AI supervisor layer for adaptive re-authentication.</p>
+          <div class="proj-metrics">
+            <span class="proj-metric">15+ Features</span>
+            <span class="proj-metric">RF + One-Class SVM</span>
+          </div>
+          <div class="proj-stack">
+            <span class="proj-tech">Python</span><span class="proj-tech">Scikit-learn</span><span class="proj-tech">TFLite</span><span class="proj-tech">Behavioral Biometrics</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-number">03</div>
+        <div class="proj-body">
+          <div class="proj-body-top">
+            <div class="proj-title">Fake News Detection System</div>
+            <span class="proj-badge personal">Personal Project</span>
+          </div>
+          <p class="proj-desc">Fine-tuned BERT-Tiny for binary fake news classification using custom datasets. Training data augmented with web-scraped and AI-generated samples to improve robustness against adversarial content. Optimized for CPU-based deployment through transfer learning and hyperparameter tuning.</p>
+          <div class="proj-stack">
+            <span class="proj-tech">HuggingFace</span><span class="proj-tech">BERT-Tiny</span><span class="proj-tech">PyTorch</span><span class="proj-tech">Transfer Learning</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATION -->
+<section id="publication">
+  <div class="container">
+    <div class="sec-label reveal"><span>04 / Research</span></div>
+    <h2 class="sec-title reveal">IEEE <em>Publication</em></h2>
+    <div class="pub-feature reveal">
+      <div class="pub-feature-header">
+        <div class="pub-year-col">
+          <div class="pub-year-main">2026</div>
+          <div class="pub-year-sub">Accepted</div>
+        </div>
+        <div class="pub-meta-col">
+          <div class="pub-conf-name">IEEE CONECCT 2026</div>
+          <div class="pub-conf-full">12th IEEE International Conference on Electronics, Computing and Communication Technologies</div>
+          <div class="pub-conf-detail">Category I Demo · Bangalore, India · July 2026</div>
+        </div>
+      </div>
+      <div class="pub-feature-body">
+        <h3>AlertMate: A Low-Cost, Wearable IoT Locket With On-Device Inference For Reliable Fall Detection In Vulnerable Users With Multi-Channel Alerts</h3>
+        <p>Accepted as a Category I Demo paper at postgraduate level. The paper presents an end-to-end IoT system for fall detection using a low-cost wearable locket — from sensor data acquisition and EMA-based signal processing to on-chip TFLite deployment and multi-channel emergency alerting. Demonstrates meaningful AI impact in healthcare accessibility.</p>
+        <div class="pub-tags">
+          <span class="pub-tag featured">IEEE</span>
+          <span class="pub-tag featured">Category I Demo</span>
+          <span class="pub-tag">IoT · Embedded AI</span>
+          <span class="pub-tag">Fall Detection</span>
+          <span class="pub-tag">Bangalore · Jul 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="sec-label reveal"><span>05 / Recognition</span></div>
+    <h2 class="sec-title reveal">Awards & <em>achievements</em></h2>
+    <div class="ach-grid">
+      <div class="ach-card reveal">
+        <div class="ach-icon-wrap">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="ach-body">
+          <h4>GATE 2025 Qualified</h4>
+          <p>Score: 403 — Computer Science & Information Technology. Qualified national-level entrance examination for postgraduate admissions.</p>
+        </div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon-wrap">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="ach-body">
+          <h4>IEEE Conference Paper</h4>
+          <p>Accepted at IEEE CONECCT 2026 — Tier-1 IEEE conference, accepted at postgraduate level. Category I Demo presentation in Bangalore.</p>
+        </div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon-wrap">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div class="ach-body">
+          <h4>Excellence in Academics Award</h4>
+          <p>Awarded consecutively in 2023 and 2024 — Srinivas University recognition for sustained top academic performance.</p>
+        </div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon-wrap">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="ach-body">
+          <h4>Student Coordinator — Projects of the Year</h4>
+          <p>2024–2025, Srinivas University — led and coordinated the flagship annual project showcase and competition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-label reveal"><span>06 / Contact</span></div>
+    <h2 class="sec-title reveal">Let's work <em>together</em></h2>
+    <div class="contact-grid">
+      <div class="contact-text reveal">
+        <p>Open to <strong>research collaborations</strong>, ML engineering roles, and problems worth solving.</p>
+        <p>Whether it's embedded AI, NLP, or deep learning systems — I'm drawn to work that creates <strong>measurable, real-world impact</strong>.</p>
+        <p>Based in India. Available for remote and on-site opportunities.</p>
+      </div>
+      <div class="contact-links reveal">
+        <a href="mailto:nrevanth19@gmail.com" class="c-link">
+          <div class="c-link-left">
+            <span class="c-link-type">Email</span>
+            <span class="c-link-val">nrevanth19@gmail.com</span>
+          </div>
+          <span class="c-arrow">→</span>
+        </a>
+        <a href="tel:+917899928141" class="c-link">
+          <div class="c-link-left">
+            <span class="c-link-type">Phone</span>
+            <span class="c-link-val">+91 78999 28141</span>
+          </div>
+          <span class="c-arrow">→</span>
+        </a>
+        <a href="https://linkedin.com" class="c-link">
+          <div class="c-link-left">
+            <span class="c-link-type">LinkedIn</span>
+            <span class="c-link-val">View Profile</span>
+          </div>
+          <span class="c-arrow">→</span>
+        </a>
+        <a href="https://github.com" class="c-link">
+          <div class="c-link-left">
+            <span class="c-link-type">GitHub</span>
+            <span class="c-link-val">View Repository</span>
+          </div>
+          <span class="c-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Revanth N. All rights reserved.</span>
+  <span class="f-right">nrevanth19@gmail.com</span>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 90);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
